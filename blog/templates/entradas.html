@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+</head>
+<body>
+	<h1>Entradas del Blog</h1>
+	<form action="{%url 'entradas' %}" method="post">
+		{%csrf_token%}
+	{{form2.as_ul}}
+	<!--{{form2.as_p}}
+	{{form2.as_table}}-->
+	<input type="submit"value="guardar">
+	</form>
+	{% for entrada in entradas %}
+		<h2>{{entrada.titular}}</h2>
+		<p>{{entrada.contenido}}</p>
+	{% endfor %}
+</body>
+</html>
